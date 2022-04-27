@@ -1,9 +1,15 @@
 #include <iostream>
+#include "observable.h"
+#include "observer.h"
 
 using namespace std;
 
 int main()
 {
-    cout << "Hello World!" << endl;
+    FileMonitor monitor;
+    FileObserver observer;
+    monitor.Attach(&observer);
+
+    monitor.Change();
     return 0;
 }

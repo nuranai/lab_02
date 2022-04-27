@@ -4,4 +4,10 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
-        main.cpp
+        main.cpp \
+        observable.cpp \
+        observer.cpp
+
+HEADERS += \
+    observable.h \
+    observer.h
