@@ -6,13 +6,15 @@
 
 class IObserver {
 public:
-    virtual void Update() = 0;
+    virtual void Update(bool existence, long size) = 0;
 };
 
 class FileObserver: IObserver
 {
+private:
+    long lastSize = -1;
 public:
-    void Update();
+    void Update(bool existence, long size);
 };
 
 #endif // OBSERVER_H

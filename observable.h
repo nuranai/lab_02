@@ -4,6 +4,7 @@
 #include <string>
 #include "observer.h"
 #include <vector>
+#include <fileinfo.h>
 
 class Observable
 {
@@ -12,12 +13,16 @@ private:
 public:
     void Attach(FileObserver *observer);
     void Detach(FileObserver *observer);
-    void Notify();
+    void Notify(bool existence, long size);
 };
 
 class FileMonitor: public Observable {
+private:
+    FileInfo prevFileState;
 public:
-    void Change();
+    FileMonitor(std::string _name);
+    void checkFile();
+    void Change(bool existence, long size);
 };
 
 #endif // OBSERVABLE_H
