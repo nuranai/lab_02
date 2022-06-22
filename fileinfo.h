@@ -7,9 +7,9 @@
 class FileInfo
 {
 public:
-    std::string name;
-    long size;
-    bool existence;
+    std::string name; // имя файла
+    long size; // размер
+    bool existence; // существование файла
     FileInfo(std::string fileName);
 };
 

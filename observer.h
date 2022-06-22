@@ -4,15 +4,15 @@
 #include <string>
 #include <iostream>
 
-class IObserver {
+class IObserver { // интерфейс observer
 public:
-    virtual void Update(bool existence, long size) = 0;
+    virtual void Update(bool existence, long size) = 0; // абстрактный метод обновления
 };
 
-class FileObserver: IObserver
+class FileObserver: IObserver // конкретный класс observer
 {
 private:
-    long lastSize = -1;
+    long lastSize = -1; // храним последний размер файла
 public:
     void Update(bool existence, long size);
 };

@@ -20,11 +20,9 @@ void Observable::Notify(bool existence, long size){
 FileMonitor::FileMonitor(std::string _name) : prevFileState(_name) { }
 
 void FileMonitor::checkFile() {
-    FileInfo newFileState(prevFileState.name);
-//    if (prevFileState.)
-//    FileInfo newFileState()
-    Change(newFileState.existence, newFileState.size);
-    prevFileState = newFileState;
+    FileInfo newFileState(prevFileState.name); // получаем новое состояние файла
+    Change(newFileState.existence, newFileState.size); // регистрируем изменения
+    prevFileState = newFileState; // обновляем состояние файла
 }
 
 void FileMonitor::Change(bool existence, long size) {
