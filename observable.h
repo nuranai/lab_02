@@ -6,10 +6,11 @@
 #include <vector>
 #include <fileinfo.h>
 
+//Класс отслеживает всех наблюдателей и предоставляет возможность добавлять или удалять наблюдателей.
 class Observable // интерфейс наблюателей
 {
 private:
-    std::vector<FileObserver*> subscribers; // отследивание всех наблюдателей
+    std::vector<FileObserver*> subscribers; // отслеживание всех наблюдателей
 public:
     void Attach(FileObserver *observer); //добавить наблюдателя
     void Detach(FileObserver *observer); // удалить наблюдателя
