@@ -1,12 +1,11 @@
 #include "observer.h"
 
 void FileObserver::Update(bool existence, long size) {
-    if (lastSize == -1) lastSize = size;
-//    lastSize = size;
-    if (existence) {
-        if (lastSize != size) {
+    if (lastSize == -1) lastSize = size; //если это первый вызов обновляем послдений размер
+    if (existence) { //если файл существует
+        if (lastSize != size) { //если был изменен размер
             std::cout << "File is existung, file has been changed, size: " << size << std::endl;
-            lastSize = size;
+            lastSize = size; //обновляем размер
         }
         else {
             std::cout << "File is existing, size: " << lastSize << std::endl;
@@ -15,5 +14,4 @@ void FileObserver::Update(bool existence, long size) {
     else {
         std::cout << "File is not existing" << std::endl;
     }
-//    std::cout << "called" << std::endl;
 }

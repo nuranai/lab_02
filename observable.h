@@ -6,23 +6,23 @@
 #include <vector>
 #include <fileinfo.h>
 
-class Observable
+class Observable // интерфейс наблюателей
 {
 private:
-    std::vector<FileObserver*> subscribers;
+    std::vector<FileObserver*> subscribers; // отследивание всех наблюдателей
 public:
-    void Attach(FileObserver *observer);
-    void Detach(FileObserver *observer);
-    void Notify(bool existence, long size);
+    void Attach(FileObserver *observer); //добавить наблюдателя
+    void Detach(FileObserver *observer); // удалить наблюдателя
+    void Notify(bool existence, long size); // оповестить всех наблюдателей
 };
 
 class FileMonitor: public Observable {
 private:
-    FileInfo prevFileState;
+    FileInfo prevFileState; //храним предыдущее состояние файла
 public:
     FileMonitor(std::string _name);
-    void checkFile();
-    void Change(bool existence, long size);
+    void checkFile(); //проверяем файл на состояние
+    void Change(bool existence, long size); // регистрируем изменения
 };
 
 #endif // OBSERVABLE_H
