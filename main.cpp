@@ -8,7 +8,6 @@ int main()
 {
     int prog;
     std::cout << "to test program press 1, to run program press 2, to exit press any other number:" << std::endl;
-//    qtin >> prog;
     std::cin >> prog;
 
     switch (prog) {
